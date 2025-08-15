@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GLOWIS Organic Skincare Design System 
+Beach & Tropical Theme - All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Beach Theme Colors */
+    --primary: 147 26% 66%; /* #9cb7ad */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 147 26% 80%;
+    --primary-glow: 147 26% 90%;
+
+    --secondary: 0 0% 32%; /* #515151 */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 44 52% 89%; /* #f0e1c0 */
+    --accent-foreground: 0 0% 20%;
+    
+    --accent-light: 18 24% 92%; /* #ebe1df */
+
+    --organic-green: 125 38% 59%; /* Organic Green #6FBF73 */
+    --organic-green-foreground: 0 0% 100%;
+
+    --muted: 44 52% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 33% 90%;
+    --input: 180 33% 94%;
+    --ring: 192 71% 56%;
+
+    /* Beach Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-beach: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--background)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--accent)));
+    --gradient-wave: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%);
+
+    /* Organic Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-ocean: 0 8px 32px hsl(var(--primary) / 0.2);
+    --shadow-natural: 0 2px 16px hsl(var(--organic-green) / 0.15);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 192 71% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 192 71% 70%;
+    --primary-glow: 192 71% 85%;
+
+    --secondary: 180 33% 71%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 44 52% 25%;
+    --accent-foreground: 0 0% 95%;
+
+    --organic-green: 125 38% 59%;
+    --organic-green-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 192 71% 56%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat;
+  }
+
+  /* Beach Animation Keyframes */
+  @keyframes wave {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* Custom Component Classes */
+  .wave-animation {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+
+  /* Beach Texture Classes */
+  .sand-texture {
+    background-image: radial-gradient(circle at 20% 50%, hsl(var(--accent) / 0.3) 1px, transparent 1px),
+                      radial-gradient(circle at 80% 50%, hsl(var(--accent) / 0.2) 1px, transparent 1px);
+    background-size: 30px 30px, 40px 40px;
+  }
+
+  .wave-pattern {
+    background-image: repeating-linear-gradient(90deg, 
+      transparent 0px, 
+      hsl(var(--primary) / 0.1) 1px, 
+      hsl(var(--primary) / 0.1) 2px, 
+      transparent 3px, 
+      transparent 20px);
+  }
+}
